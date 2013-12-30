@@ -11,10 +11,24 @@
   "bin": {
     "mup": "./bin/mup"
   },
-  "author": "Arunoda Susiripala <arunoda.susiripala@gmail.com>",
+  "author": {
+    "name": "Arunoda Susiripala",
+    "email": "arunoda.susiripala@gmail.com"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/arunoda/meteor-up.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "readme": "# Meteor UP\n### Production Quality Meteor Deployments\n\nMeteor Up (mup for shorter) is a command line tool, which allows you to deploy any meteor app into a your own server. It support Ubuntu 12.04 or higher servers from any Cloud Infrastructure Provider.\n\n## Meteor UP Features\n\n* Single command server setup\n* Single command deployment\n* Environmental Variables management\n* Support for [`settings.json`](http://docs.meteor.com/#meteor_settings)\n* Password or Private Key(pem) based server authentication\n* Access, logs from the terminal (supports log tailing)\n\n## Server Configurations Meteor Up Does\n\n* Auto-Restart if the app crashed (using forever)\n* Auto-Start after the server reboot (using upstart)\n* Stepdown User Privileges\n* Revert to the previous version, if the deployment failed\n* Support for **Hot Code Reload**\n* Secured MongoDB Installation\n* Pre-Installed PhantomJS\n\n### Installation\n\n    npm install -g mup\n\nIf you are looking for password based authentication, you need to [install sshpass](https://gist.github.com/arunoda/7790979) on your local development machine.\n\n### Creating a Meteor Up Project\n\n    mkdir ~/my-meteor-deployment\n    cd ~/my-meteor-deployment\n    mup init\n\nThis will create two files in your mup project directory, which are:\n\n  * mup.json - Meteor Up configuration file\n  * settings.json - Settings for Meteor's [settings API](http://docs.meteor.com/#meteor_settings)\n\n`mup.json` is commented and easy to follow (it supports JavaScript comments)\n\n### Setting Up the Server\n\n    mup setup\n\nThis will setup the server for the mup deployments. It will take around 2-5 minutes depending on the server's performance and network availability.\n\n### Deploy the App\n\n    mup deploy\n\nThis will bundle the meteor project and deploy it to the server.\n\n### Access Logs\n\n    mup logs -f\n\nMup can tail logs from the server and it supports all the options of `tail`\n\n### Reconfiguring\n\nAfter you've edit environmental variables or settings.json, you can reconfigure the app without deploying again. Use following command for that.\n\n    mup reconfig\n\n## Server Setup\n\nHere is how Meteor Up, configure the server for you. This information will help you to customize server for your needs.\n\n* your app is lives in `/opt/meteor/app`\n* mup uses upstart with a config file at `/etc/init/meteor.conf`\n* you can start and stop the app with upstart: `start meteor` and `stop meteor`\n* logs are located at: `/var/log/upstart/app.log`\n* MongoDB installed and bind to the local interface (cannot access from the outside)\n* `mongo` is the name of the database\n\nfor more information see [`lib/taskLists.js`](https://github.com/arunoda/meteor-up/blob/master/lib/taskLists.js)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/arunoda/meteor-up/issues"
+  },
+  "_id": "mup@0.1.7",
+  "dist": {
+    "shasum": "997694487f62aacdd33e23da4f421488671dabb7"
+  },
+  "_from": "mup@",
+  "_resolved": "https://registry.npmjs.org/mup/-/mup-0.1.7.tgz"
 }

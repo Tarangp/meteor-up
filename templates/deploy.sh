@@ -4,8 +4,8 @@ set -e
 cd /opt/meteor/tmp
 sudo rm -rf bundle
 sudo tar xvzf bundle.tar.gz > /dev/null
-cd bundle/programs/server
-sudo npm install fibers
+cd bundle
+sudo npm install
 
 cd /opt/meteor/
 
